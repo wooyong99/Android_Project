@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/activity_main__editTextNum1"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="숫자를 입력해주세요."
+        />
+    <EditText
+        android:id="@+id/activity_main__editTextNum2"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="숫자를 입력해주세요."/>
+    <Button
+        android:text="더하기"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnPlus"/>
+    <Button
+        android:text="초기화"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClear"/>
+    <TextView
+        android:id="@+id/activity_main__textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
