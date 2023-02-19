@@ -20,16 +20,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="숫자를 입력해주세요."/>
-    <Button
-        android:text="더하기"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="btnPlus"/>
-    <Button
-        android:text="초기화"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnClear"/>
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:text="더하기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnPlus"
+            android:layout_margin="10dp"/>
+        <Button
+            android:text="초기화"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnClear"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
     <TextView
         android:id="@+id/activity_main__textView"
         android:layout_width="match_parent"
