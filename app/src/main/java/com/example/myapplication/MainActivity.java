@@ -9,9 +9,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    EditText editTextNum1 ;
-    EditText editTextNum2 ;
-    TextView textView ;
+    EditText editTextNum1;
+    EditText editTextNum2;
+    TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,20 +23,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnPlus(View view) {
-//        요소의 값이 공백이 있는 경우를 대비하여 공백제거 코드
-        editTextNum1.setText(editTextNum1.getText().toString().trim());
-        editTextNum2.setText(editTextNum2.getText().toString().trim());
-
-//        공백 제거한 요소 값의 길이가 0일 경우 코드 구현
-        if( editTextNum1.getText().toString().length() == 0 ){
-            Toast.makeText(getApplicationContext(),"숫자를 입력해주세요.", Toast.LENGTH_SHORT).show();
-            editTextNum1.requestFocus();
-            return ;
-        }
-        if( editTextNum2.getText().toString().length() == 0 ){
-            Toast.makeText(getApplicationContext(), "숫자를 입력해주세요.", Toast.LENGTH_SHORT).show();
-            editTextNum2.requestFocus();
-            return ;
+        if (!checkInputValue()) {
+            return;
         }
 
 //        공백 제거한 요소 값의 길이가 0이 아닐경우 int로 형변환
@@ -46,6 +35,25 @@ public class MainActivity extends AppCompatActivity {
 
 //        결과 값을 나타내기 위한 textView 요소 text 값을 설정
         textView.setText("결과 : " + rs);
+    }
+
+    private boolean checkInputValue() {
+        //        요소의 값이 공백이 있는 경우를 대비하여 공백제거 코드
+        editTextNum1.setText(editTextNum1.getText().toString().trim());
+        editTextNum2.setText(editTextNum2.getText().toString().trim());
+
+//        공백 제거한 요소 값의 길이가 0일 경우 코드 구현
+        if (editTextNum1.getText().toString().length() == 0) {
+            Toast.makeText(getApplicationContext(), "숫자를 입력해주세요.", Toast.LENGTH_SHORT).show();
+            editTextNum1.requestFocus();
+            return false;
+        }
+        if (editTextNum2.getText().toString().length() == 0) {
+            Toast.makeText(getApplicationContext(), "숫자를 입력해주세요.", Toast.LENGTH_SHORT).show();
+            editTextNum2.requestFocus();
+            return false;
+        }
+        return true;
     }
 
     public void btnClear(View view) {
@@ -60,17 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnMinus(View view) {
-        editTextNum1.setText(editTextNum1.getText().toString().trim());
-        editTextNum2.setText(editTextNum2.getText().toString().trim());
-
-        if( editTextNum1.getText().toString().length() == 0 ){
-            Toast.makeText(getApplicationContext(),"숫자를 입력해주세요.", Toast.LENGTH_SHORT).show();
-            editTextNum1.requestFocus();
-            return ;
-        }
-        if( editTextNum2.getText().toString().length() == 0 ){
-            Toast.makeText(getApplicationContext(), "숫자를 입력해주세요.", Toast.LENGTH_SHORT).show();
-            editTextNum2.requestFocus();
+        if(!checkInputValue()){
             return ;
         }
 
